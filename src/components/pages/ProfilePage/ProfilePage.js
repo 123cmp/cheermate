@@ -1,8 +1,8 @@
 import React from 'react'
-import {Row, Container, Image, Col} from "react-bootstrap";
-import UserInfo from "../UserInfo";
-import ScoreSection from "../ScoreSection";
-import TipsList from "../TipsList";
+import { Container } from "react-bootstrap";
+import UserInfo from "../../UserInfo/UserInfo";
+import ScoreSection from "../../ScoreSection/ScoreSection";
+import TipsList from "../../TipsList/TipsList";
 
 export default function ProfilePage() {
     return (

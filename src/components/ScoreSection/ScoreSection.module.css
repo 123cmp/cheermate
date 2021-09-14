@@ -1,0 +1,30 @@
+.tipsLabel {
+    margin: 0 0 1rem 0;
+}
+
+.tipsCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+.tipsReceived {
+    border-radius: 100%;
+    width: 5rem;
+    height: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: lightgreen
+}
+
+.tipsToBeSent {
+    border-radius: 100%;
+    width: 5rem;
+    height: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: #ff5353
+}
