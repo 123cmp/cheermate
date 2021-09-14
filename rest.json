@@ -1,0 +1,129 @@
+{
+  "entities": [
+    {
+      "entity": "User",
+      "body": {
+        "id": "string",
+        "name": "string",
+        "imageUrl": "string",
+        "surname": "string",
+        "tipsToBeSent": "number",
+        "tipsToBeSpent": "number",
+        "tipList": "Array<Tip>",
+        "isAdmin": "Boolean"
+      },
+      "methods": [
+        {
+          "description": "Get all Users",
+          "method": "get",
+          "url": "/users"
+        },
+        {
+          "description": "Get single User",
+          "method": "get",
+          "url": "/users/{id}"
+        },
+        {
+          "description": "Create User",
+          "method": "put",
+          "url": "/users"
+        },
+        {
+          "description": "Modify User",
+          "method": "post",
+          "url": "/users/{id}"
+        }
+      ]
+    },
+    {
+      "entity": "Reward",
+      "body": {
+        "id": "string",
+        "name": "string",
+        "description": "string",
+        "imageUrl": "string",
+        "cost": "number"
+      },
+      "methods": [
+        {
+          "description": "Get all Reward",
+          "method": "get",
+          "url": "/rewards"
+        },
+        {
+          "description": "Get single Reward",
+          "method": "get",
+          "url": "/rewards/{id}"
+        },
+        {
+          "description": "Create Reward",
+          "method": "put",
+          "url": "/rewards"
+        },
+        {
+          "description": "Modify Reward",
+          "method": "post",
+          "url": "/rewards/{id}"
+        },
+        {
+          "description": "Delete Reward",
+          "method": "delete",
+          "url": "/rewards/{id}"
+        }
+      ]
+    },
+    {
+      "entity": "Tip",
+      "body": {
+        "id": "string",
+        "sender": "User",
+        "receiver": "User",
+        "description": "string",
+        "count": "number"
+      },
+      "methods": [
+        {
+          "description": "Get all Tips",
+          "method": "get",
+          "url": "/users/{userId}/tips"
+        },
+        {
+          "description": "Create Tip",
+          "method": "put",
+          "url": "/users/{userId}/tips"
+        }
+      ]
+    },
+    {
+      "entity": "Transaction",
+      "body": {
+        "id": "string",
+        "user": "User",
+        "reward": "Reward",
+        "date": "Date"
+      },
+      "methods": [
+        {
+          "description": "Get all Transaction",
+          "method": "get",
+          "url": "/transactions"
+        },
+        {
+          "description": "Get single Transaction",
+          "method": "get",
+          "url": "/transactions/{id}"
+        },
+        {
+          "description": "Create Transaction",
+          "method": "put",
+          "url": "/transactions"
+        },
+        {
+          "description": "Delete Transaction",
+          "method": "delete",
+          "url": "/transactions/{id}"
+        }
+      ]
+    }
+  ]
+}
