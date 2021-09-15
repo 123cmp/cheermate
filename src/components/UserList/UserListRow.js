@@ -9,11 +9,11 @@ export default function UserListRow({ cardModels, index, size = 4 }) {
     const getCard = (model, i) => model
         ? <Col key={`user-col-${index}-${i}`}>
             <Card style={{width: '18rem'}}>
-                <Card.Img variant="top" src="https://i.imgur.com/C5ZpUTu.jpeg"/>
+                <Card.Img variant="top" src={model.imageUrl}/>
                 <Card.Body>
-                    <Card.Title>Username</Card.Title>
+                    <Card.Title>{model.name} {model.surname}</Card.Title>
                     <Card.Text>
-                        Role etc
+                        {model.description}
                     </Card.Text>
                     <Button variant="outline-success" color="success">Tip</Button>
                 </Card.Body>

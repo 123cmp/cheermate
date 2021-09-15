@@ -8,12 +8,12 @@ export default function RewardListRow({cardModels, index, size = 4}) {
 
     const getCard = (model, i) => model
         ? <Col key={`reward-col-${index}-${i}`}>
-            <Card style={{width: '18rem'}}>
-                <Card.Img variant="top" src="https://i.imgur.com/1lgPDw1.jpeg"/>
+            <Card>
+                <Card.Img variant="top" src={model.imageUrl} />
                 <Card.Body>
-                    <Card.Title>Lamborghini Aventador</Card.Title>
+                    <Card.Title>{model.name}</Card.Title>
                     <Card.Text>
-                        $500 000
+                        {model.cost}
                     </Card.Text>
                     <Button variant="outline-success" color="success">Choose</Button>
                 </Card.Body>

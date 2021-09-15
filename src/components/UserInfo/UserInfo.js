@@ -4,15 +4,15 @@ import React from "react";
 import sharedStyles from './../../shared.module.css';
 import styles from './UserInfo.module.css'
 
-export default function UserInfo() {
+export default function UserInfo({model}) {
     return (
         <Row className={sharedStyles.userInfoRow}>
             <Col>
-                <Image src="https://i.imgur.com/C5ZpUTu.jpeg" rounded/>
+                <Image src={model.imageUrl} rounded/>
             </Col>
             <Col className={styles.userNameCol}>
-                <h1>Firstname Lastname</h1>
-                <p>Description, role etc</p>
+                <h1>{model.name} {model.surname}</h1>
+                <p>{model.description}</p>
             </Col>
         </Row>
     )
