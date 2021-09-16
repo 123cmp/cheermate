@@ -1,4 +1,4 @@
-import {SET_USERS_FILTER_STRING} from "../actionTypes";
+import {AUTHORIZE, REGISTER, SET_USERS_FILTER_STRING} from "../actionTypes";
 
 const initialState = {
     allUsers: [
@@ -48,6 +48,7 @@ const initialState = {
         }
     ],
     filterString: "",
+    isAuthorized: false,
 };
 
 const users = (state = initialState, action) => {
@@ -55,6 +56,15 @@ const users = (state = initialState, action) => {
         case SET_USERS_FILTER_STRING: {
             return { ...state, filterString: action.payload };
         }
+        case AUTHORIZE: {
+            console.log('Authorization attempt', action.payload);
+            return { ...state, isAuthorized: true };
+        }
+        case REGISTER: {
+            console.log('Registration attempt', action.payload);
+            return { ...state, isAuthorized: true };
+        }
+
         default: {
             return state;
         }

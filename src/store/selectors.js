@@ -1,5 +1,8 @@
+export const getIsAuthorized = store => store.users.isAuthorized;
+
 export const getAllRewards = store => store.rewards.allRewards;
 export const getRewardFilterString = store => store.rewards.filterString;
+export const getRewardsFetching = store => store.rewards.isFetching;
 export const getFilteredRewards = store => store.rewards.allRewards.filter(
     reward => reward.name.toLowerCase().includes(store.rewards.filterString.toLowerCase())
 );

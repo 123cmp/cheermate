@@ -1,9 +1,9 @@
 import React from 'react'
 import { Container, Form } from "react-bootstrap";
-import UserList from "../../UserList/UserList";
+import UserList from "../../components/UserList/UserList";
 import {useDispatch, useSelector} from "react-redux";
-import {getFilteredUsers, getUserById, getUsersFilterString} from "../../../store/selectors";
-import {setFilterStringForUsers} from "../../../store/actions";
+import {getFilteredUsers, getUserById, getUsersFilterString} from "../../store/selectors";
+import {setFilterStringForUsers} from "../../store/actions";
 
 export default function GivingPage() {
     const dispatch = useDispatch();

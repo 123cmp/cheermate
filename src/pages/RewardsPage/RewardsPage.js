@@ -1,15 +1,22 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Container, Form} from "react-bootstrap";
-import RewardList from "../../RewardList/RewardList";
+import RewardList from "../../components/RewardList/RewardList";
 import {useDispatch, useSelector} from "react-redux";
-import {getFilteredRewards, getRewardFilterString} from "../../../store/selectors";
-import {setFilterStringForRewards} from "../../../store/actions";
+import {getFilteredRewards, getRewardFilterString, getRewardsFetching} from "../../store/selectors";
+import {fetchRewards, setFilterStringForRewards} from "../../store/actions";
 
 export default function RewardsPage() {
     const filterString = useSelector(getRewardFilterString);
+    const isRewardsFetching = useSelector(getRewardsFetching);
     const dispatch = useDispatch();
     const rewards = useSelector(getFilteredRewards);
     const count = 1;
+
+    useEffect(() => {
+        if(rewards.length === 0 && !isRewardsFetching) {
+            dispatch(fetchRewards());
+        }
+    })
 
     const handleFilterStringChange = (event) => dispatch(
         setFilterStringForRewards(event.target.value)

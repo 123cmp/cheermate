@@ -4,6 +4,7 @@
       "entity": "User",
       "body": {
         "id": "string",
+        "email": "string",
         "name": "string",
         "imageUrl": "string",
         "surname": "string",
