@@ -1,8 +1,51 @@
 import {API_URL} from "../config";
 
+const get = async (endpoint) => {
+    return await fetch(`${API_URL}${endpoint}`)
+        .then(
+            response => {
+                if(response.status === 200) {
+                    return response.json();
+                } else {
+                    throw new Error(response.statusText);
+                }
+            }
+        )
+        .catch(error => {
+            throw new Error(error);
+        })
+}
+
+const put = async (endpoint, data) => {
+    return await fetch(`${API_URL}${endpoint}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(
+            response => {
+                if(response.status !== 200) {
+                    throw new Error(response.statusText);
+                }
+            }
+        )
+        .catch(error => {
+            throw new Error(error);
+        })
+}
+
 export const API = {
     fetchRewards: async function () {
-        const response = await fetch(`${API_URL}/rewards`);
-        return await response.json();
+        return await get('/rewards');
+    },
+
+    fetchUsers: async function () {
+        return await get('/users');
+    },
+
+    register: async function(data) {
+        return await put('/users', data)
     }
 }

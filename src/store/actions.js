@@ -1,4 +1,11 @@
-import {AUTHORIZE, FETCH_REWARDS, REGISTER, SET_REWARDS_FILTER_STRING, SET_USERS_FILTER_STRING} from "./actionTypes";
+import {
+    AUTHORIZE,
+    FETCH_REWARDS,
+    FETCH_USERS,
+    REGISTER,
+    SET_REWARDS_FILTER_STRING,
+    SET_USERS_FILTER_STRING
+} from "./actionTypes";
 
 export const setFilterStringForRewards = payload => ({
     type: SET_REWARDS_FILTER_STRING,
@@ -22,4 +29,8 @@ export const register = payload => ({
 
 export const fetchRewards = () => ({
     type: FETCH_REWARDS,
+})
+
+export const fetchUsers = () => ({
+    type: FETCH_USERS,
 })

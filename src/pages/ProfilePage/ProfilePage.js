@@ -4,17 +4,21 @@ import UserInfo from "../../components/UserInfo/UserInfo";
 import ScoreSection from "../../components/ScoreSection/ScoreSection";
 import TipsList from "../../components/TipsList/TipsList";
 import {useSelector} from "react-redux";
-import {getUserById} from "../../store/selectors";
+import {getCurrentUser, getUserById, getUsersFetching, getUsersIsFetched} from "../../store/selectors";
+import DynamicContent from "../../components/DinamicContent/DynamicContent";
 
 export default function ProfilePage() {
-    const currentUser = useSelector((state) => getUserById(state, "123"));
+    const currentUser = useSelector(getCurrentUser);
+    const isUsersFetching = useSelector(getUsersFetching);
 
     return (
         <Container>
-            <UserInfo model={currentUser} />
-            <ScoreSection model={currentUser} />
-            <TipsList caption={'Tips Received'}/>
-            <TipsList caption={'Tips sent'}/>
+            <DynamicContent isLoading={isUsersFetching}>
+                <UserInfo model={currentUser} />
+                <ScoreSection model={currentUser} />
+                <TipsList caption={'Tips Received'}/>
+                <TipsList caption={'Tips sent'}/>
+            </DynamicContent>
         </Container>
     )
 }

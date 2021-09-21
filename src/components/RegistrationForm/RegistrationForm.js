@@ -7,7 +7,7 @@ import ImageUploadInput from "../ImageUploadInput/ImageUploadInput";
 export default function RegistrationForm({onSubmit}) {
     const [model, setModel] = useState({
         name: '',
-        surname: '',
+        lastName: '',
         email: '',
         image: null,
         description: '',
@@ -44,9 +44,9 @@ export default function RegistrationForm({onSubmit}) {
                     <Form.Group className="mb-3" controlId="UserSurName">
                         <Form.Control
                             type="text"
-                            placeholder="Surname"
-                            value={model.surname}
-                            onChange={(e) => handleFieldChange('surname', e.target.value)}
+                            placeholder="Last Name"
+                            value={model.lastName}
+                            onChange={(e) => handleFieldChange('lastName', e.target.value)}
                         />
                     </Form.Group>
                 </Col>

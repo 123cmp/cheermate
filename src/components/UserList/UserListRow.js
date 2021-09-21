@@ -2,23 +2,15 @@ import { Card, Button, Row, Col } from "react-bootstrap";
 import React from "react";
 
 import styles from './UserList.module.css'
+import UserCard from "./UserCard";
 
 export default function UserListRow({ cardModels, index, size = 4 }) {
     const columns = [];
 
     const getCard = (model, i) => model
         ? <Col key={`user-col-${index}-${i}`}>
-            <Card style={{width: '18rem'}}>
-                <Card.Img variant="top" src={model.imageUrl}/>
-                <Card.Body>
-                    <Card.Title>{model.name} {model.surname}</Card.Title>
-                    <Card.Text>
-                        {model.description}
-                    </Card.Text>
-                    <Button variant="outline-success" color="success">Tip</Button>
-                </Card.Body>
-            </Card>
-        </Col>
+            <UserCard model={model} />
+          </Col>
         : <Col key={`user-col-${index}-${i}`}/>;
 
     for (let i = 0; i < size; i++) {

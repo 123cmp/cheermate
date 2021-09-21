@@ -1,5 +1,5 @@
 import './App.css';
-import React from "react";
+import React, {useEffect} from "react";
 import Header from "./components/Header/Header";
 import GivingPage from "./pages/GivingPage/GivingPage";
 import RewardsPage from "./pages/RewardsPage/RewardsPage";
@@ -14,14 +14,28 @@ import {
     Route,
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from "./components/PrivateRoute";
-import {useSelector} from "react-redux";
-import {getIsAuthorized} from "./store/selectors";
+import {useDispatch, useSelector} from "react-redux";
+import {getIsAuthorized, getUsersFetching, getUsersIsFetched} from "./store/selectors";
+import {ToastContainer} from 'react-toastify';
+import {fetchUsers} from "./store/actions";
 
 function App() {
+    const dispatch = useDispatch();
     const isAuthorized = useSelector(getIsAuthorized);
+    const isUsersFetching = useSelector(getUsersFetching);
+    const isUsersFetched = useSelector(getUsersIsFetched);
+
+    useEffect(() => {
+        if(!isUsersFetched && !isUsersFetching) {
+            dispatch(fetchUsers());
+        }
+    })
+
     return (
         <div className="App">
+            <ToastContainer/>
             <Router>
                 <Header/>
                 <Switch>
@@ -50,7 +64,7 @@ function App() {
                         component={ProfilePage}
                     />
 
-                    <Redirect to='/' />
+                    <Redirect to='/'/>
                 </Switch>
             </Router>
         </div>
