@@ -17,9 +17,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from "./components/PrivateRoute";
 import {useDispatch, useSelector} from "react-redux";
-import {getIsAuthorized, getUsersFetching, getUsersIsFetched} from "./store/selectors";
+import {
+    getIsAuthorized,
+    getUsersFetching,
+    getUsersIsFetched
+} from "./store/selectors";
 import {ToastContainer} from 'react-toastify';
-import {fetchUsers} from "./store/actions";
+import {fetchTips, fetchUsers} from "./store/actions";
 
 function App() {
     const dispatch = useDispatch();
@@ -31,7 +35,8 @@ function App() {
         if(!isUsersFetched && !isUsersFetching) {
             dispatch(fetchUsers());
         }
-    })
+
+    }, [isUsersFetched, isUsersFetching])
 
     return (
         <div className="App">

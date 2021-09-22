@@ -12,7 +12,15 @@ export function rightPad(array, expectedLength, placeholder) {
 
 export function showError(message) {
     toast.error(message, {
-        position: "top-center",
+        position: "top-right",
+        pauseOnHover: false,
+        closeOnClick: true
+    })
+}
+
+export function showSuccess(message) {
+    toast.success(message, {
+        position: "top-right",
         pauseOnHover: false,
         closeOnClick: true
     })

@@ -45,7 +45,18 @@ export const API = {
         return await get('/users');
     },
 
+    fetchTips: async function (userId) {
+        return await get(`/users/${userId}/tips`);
+    },
+
     register: async function(data) {
         return await put('/users', data)
+    },
+
+    tipUser: async function(data) {
+        const { receiverId } = data;
+        data.count = 1; // temporary
+
+        return await put(`/users/${receiverId}/tips`, data)
     }
 }

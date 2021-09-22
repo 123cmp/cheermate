@@ -12,7 +12,7 @@ const initialState = {
     filterString: "",
     isAuthorized: true,//false,
     isFetching: false,
-    isUsersFetched: false,
+    isFetched: false,
 };
 
 const users = (state = initialState, action) => {
@@ -26,13 +26,13 @@ const users = (state = initialState, action) => {
         }
 
         case FETCH_USERS: {
-            return {...state, isFetching: true, isUsersFetched: false};
+            return {...state, isFetching: true, isFetched: false};
         }
         case FETCH_USERS_SUCCEEDED: {
-            return {...state, isFetching: false, allUsers: action.payload, isUsersFetched: true};
+            return {...state, isFetching: false, allUsers: action.payload, isFetched: true};
         }
         case FETCH_USERS_FAILED: {
-            return {...state, isFetching: false, allUsers: [], isUsersFetched: true};
+            return {...state, isFetching: false, allUsers: [], isFetched: true};
         }
         case REGISTER_SUCCEEDED: {
             return {...state, isAuthorized: true};
